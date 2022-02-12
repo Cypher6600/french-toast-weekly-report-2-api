@@ -1,7 +1,8 @@
 FROM mcr.microsoft.com/dotnet/sdk:5.0 AS build
 WORKDIR /src
 CMD ls 2> /dev/null
-COPY ["CM.WeeklyTeamReport.DB.csproj", "CM.WeeklyTeamReport.DB.csproj"]
+
+COPY ["CM.WeeklyTeamReport.DB/CM.WeeklyTeamReport.DB.csproj", "CM.WeeklyTeamReport.DB/CM.WeeklyTeamReport.DB.csproj"]
 RUN dotnet restore "CM.WeeklyTeamReport.DB.csproj"
 COPY . .
 RUN dotnet build "CM.WeeklyTeamReport.DB.csproj"
