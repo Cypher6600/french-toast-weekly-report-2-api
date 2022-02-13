@@ -1,5 +1,5 @@
 FROM mcr.microsoft.com/dotnet/sdk:5.0 AS build
-WORKDIR "/src/CM.WeeklyTeamReport.DB"
+WORKDIR /src
 COPY ["CM.WeeklyTeamReport.DB.csproj", "CM.WeeklyTeamReport.DB.csproj"]
 RUN dotnet restore "CM.WeeklyTeamReport.DB.csproj"
 COPY . .
