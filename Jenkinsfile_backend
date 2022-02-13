@@ -41,7 +41,7 @@ pipeline {
                         //sh 'ls -a'
                         //sh 'ls -a src'
                        // sh 'docker build -t dacpac . -f ./src/CM.WeeklyTeamReport.DB/Dockerfile'
-                        sh 'docker build -t 529396670287.dkr.ecr.us-west-2.amazonaws.com/v3 ./src/CM.WeeklyTeamReport.DB -f ./src/CM.WeeklyTeamReport.DB/Dockerfile
+                        sh 'docker build -t 529396670287.dkr.ecr.us-west-2.amazonaws.com/v3 ./src/CM.WeeklyTeamReport.DB -f ./src/CM.WeeklyTeamReport.DB/Dockerfile'
                         //sh 'docker tag dacpac:latest 529396670287.dkr.ecr.us-west-2.amazonaws.com/dacpac:latest'
                         sh 'docker push 529396670287.dkr.ecr.us-west-2.amazonaws.com/dacpac:v3'
                         }
