@@ -35,13 +35,14 @@ pipeline {
                 steps{
                     container('docker') {
                         sh 'docker login --username AWS --password-stdin < password.txt 529396670287.dkr.ecr.us-west-2.amazonaws.com'
-                        //sh 'docker build -t back_end . -f ./src/CM.WeeklyTeamReport.WebAPI/Dockerfile'
-                        //sh 'docker tag back_end:latest 529396670287.dkr.ecr.us-west-2.amazonaws.com/back_end:latest'
-                        //sh 'docker push 529396670287.dkr.ecr.us-west-2.amazonaws.com/back_end:latest'
+                        sh 'docker build -t back_end . -f ./src/CM.WeeklyTeamReport.WebAPI/Dockerfile'
+                        sh 'docker tag back_end:latest 529396670287.dkr.ecr.us-west-2.amazonaws.com/back_end:latest'
+                        sh 'docker push 529396670287.dkr.ecr.us-west-2.amazonaws.com/back_end:latest'
                         // sh 'docker build -t dacpac . -f ./src/CM.WeeklyTeamReport.DB/Dockerfile'
                         sh 'docker build -t dacpac ./src/CM.WeeklyTeamReport.DB -f ./src/CM.WeeklyTeamReport.DB/Dockerfile'
+                        //sh 'docker tag dacpac:latest 529396670287.dkr.ecr.us-west-2.amazonaws.com/dacpac:latest'
+                        sh 'docker push 529396670287.dkr.ecr.us-west-2.amazonaws.com/dacpac:${BUILD_NUMBER}'
                         sh 'docker tag dacpac:latest 529396670287.dkr.ecr.us-west-2.amazonaws.com/dacpac:latest'
-                        sh 'docker push 529396670287.dkr.ecr.us-west-2.amazonaws.com/dacpac:latest'
                         }
                     }
             }
